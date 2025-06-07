@@ -1,0 +1,15 @@
+.btn.btn-outline-primary{
+    border-color: #003a66 !important;
+    color: #003a66;
+}
+.navbar-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.navbar-collapse.show {
+  max-height: 500px; /* Adjust based on your content */
+  opacity: 1;
+}
