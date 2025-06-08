@@ -1,1 +1,38 @@
-<p>landing works!</p>
+<div class="search-container">
+  @if (imageUrls[activeImgIndex]) {
+  <img
+    [src]="imageUrls[activeImgIndex]"
+    [@fadeAnimation]
+    class="search-background"
+    alt=""
+  />
+  }
+  <div class="search">
+
+      <h1 class=" text-white text-capitalize mb-3">{{activeText[activeImgIndex] | uppercase}}</h1>
+      <p class="text-white w-100 px-3 mb-3">{{subTexts[activeImgIndex] }}</p>
+      <div class="search-bar">
+        <i class="material-icons text-secondary">location_on</i>
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search for trips, destinations, or activities..."
+        />
+        <i class="material-icons text-secondary">search</i>
+      </div>
+  </div>
+  <div class="search-results">
+    <!-- Search results will be displayed here -->
+  </div>
+</div>
+<div class="container">
+   <div class="text-center mt-5 pb-3">
+            <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Package</h6>
+            <h1 class="mb-4 text-secondary">Popular Packages</h1>
+        </div>
+    <mat-tab-group>
+  <mat-tab label=" Varanasi"> Varanasi </mat-tab>
+  <mat-tab label="Ayodhya"> Ayodhya </mat-tab>
+  <mat-tab label="Prayagraj">  </mat-tab>
+</mat-tab-group>
+</div>

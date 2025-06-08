@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {
   trigger,
@@ -26,4 +26,5 @@ export class HeaderComponent {
   toggleMenu() {
     this.toggleActive = !this.toggleActive;
   }
+
 }
