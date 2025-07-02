@@ -10,11 +10,26 @@
   opacity: 0;
   transition: opacity 0.5s ease-in;
 }
-.text-capitalize{
+.text-capitalize {
   font-size: calc(1.625rem + 4.5vw);
-    font-weight: 700;
-    line-height: 1.2;
+  font-weight: 700;
+  line-height: 1.2;
 }
+.package-card {
+  transition: all 0.3s;
+  img {
+    transform: 0.5s ease;
+  }
+}
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2)
+   img {
+  transform: scale(1.05);
+}
+}
+
+
 
 .fade-in {
   opacity: 1;
