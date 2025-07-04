@@ -72,3 +72,69 @@ input:focus {
   align-items: center;
   text-align: center;
 }
+.city-card-wrapper {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .city-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+
+  .city-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    transition: background 0.3s ease;
+
+    .city-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .city-tours {
+      background-color: #ffc107;
+      color: #212529;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 3px;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .explore-btn {
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+  }
+
+  &:hover {
+    .city-image {
+      transform: scale(1.05);
+    }
+
+    .explore-btn {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .city-overlay {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+}

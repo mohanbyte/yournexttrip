@@ -1,26 +1,16 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
+import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
+import { fadeAnimation, slideInAnimation, zoomAnimation } from '../animations';
 
 @Component({
   selector: 'landing',
   imports: [MatTabsModule, CommonModule],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',
-  animations: [
-    trigger('fadeAnimation', [
-      transition(':enter', [
-        // when image enters DOM
-        style({ opacity: 0 }),
-        animate('500ms ease-in', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        // optional if using *ngIf
-        animate('300ms ease-out', style({ opacity: 0 })),
-      ]),
-    ]),
-  ],
+  animations: [fadeAnimation, zoomAnimation, slideInAnimation],
 })
 export class LandingComponent implements OnInit {
   activeImgIndex: number = 0;
@@ -42,9 +32,15 @@ export class LandingComponent implements OnInit {
     'Plan your next trip without worry with our easy EMI payment options.',
     "EASY EMI OTIONS  II  Women's Safe Travel Platform  II  End to end and Customizable Packages",
   ];
+  cities : any[] = [];
+  constructor( private httpClient : HttpClient) {}
+
   ngOnInit() {
     // Initialize any necessary data or state here
     this.startImageRotation();
+    this.httpClient.get('https://yournexttrip-be.onrender.com/api/v1/city').subscribe(res=>{
+      console.log(res);
+    })
   }
   startImageRotation() {
     setInterval(() => {
@@ -75,5 +71,12 @@ export class LandingComponent implements OnInit {
         clearInterval(this.typingInterval);
       }
     }, 80); // Adjust typing speed here
+  }
+   getImageUrl(cityName: string): string {
+    return `https://www.yournexttrip.in/img/${cityName}.png`;
+  }
+
+  getLink(cityName: string): string {
+    return `upcomingtrips.html?destination=${cityName.toLowerCase()}`;
   }
 }
