@@ -1,6 +1,6 @@
-.btn.btn-outline-primary{
-    border-color: #003a66 !important;
-    color: #003a66;
+.btn.btn-outline-primary {
+  border-color: #003a66 !important;
+  color: #003a66;
 }
 .navbar-collapse {
   max-height: 0;
@@ -12,4 +12,9 @@
 .navbar-collapse.show {
   max-height: 500px; /* Adjust based on your content */
   opacity: 1;
+}
+.nav-bar {
+  top: 0;
+  position: sticky;
+  z-index: 1000;
 }

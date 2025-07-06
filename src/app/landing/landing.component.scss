@@ -6,6 +6,7 @@
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
 }
+
 .fade {
   opacity: 0;
   transition: opacity 0.5s ease-in;
@@ -13,7 +14,8 @@
 .text-capitalize {
   font-size: calc(1.625rem + 4.5vw);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
+  width: 80%;
 }
 .package-card {
   transition: all 0.3s;
@@ -68,6 +70,7 @@ input:focus {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 35px;
 }
 .city-card-wrapper {
   position: relative;
@@ -84,6 +87,10 @@ input:focus {
     display: block;
   }
 
+  &:hover .city-image {
+    transform: scale(1.05);
+  }
+
   .city-overlay {
     position: absolute;
     inset: 0;
@@ -98,10 +105,6 @@ input:focus {
     gap: 1rem;
     &:hover {
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
-      .city-image {
-        transform: scale(1.05);
-      }
-
       .btn {
         opacity: 1;
         visibility: visible;
@@ -116,12 +119,13 @@ input:focus {
     .btn {
       position: absolute; // ensures no space taken when hidden
       bottom: 3rem;
-
-      transform: translate(-50%, -50%); // slide down by default
+      cursor: grab;
+      transform: translate(0%, 100%); // slide down by default
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.3s ease;
       pointer-events: none; // optional: disable interaction when hidden
+      z-index: 50;
     }
     .city-title {
       font-weight: 700;
