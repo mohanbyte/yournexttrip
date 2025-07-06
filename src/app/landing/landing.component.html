@@ -33,77 +33,38 @@
     </h6>
     <h1 class="mb-4 text-secondary">Popular Packages</h1>
   </div>
-  <!-- <div
-    class="position-relative overflow-hidden rounded package-card"
-    style="height: 350px"
-  >
-    <img
-      src="	https://www.yournexttrip.in/img/Varanashi.png"
-      [@fadeAnimation]
-      [@zoomAnimation]
-      [@slideInAnimation]
-      class="img-fluid w-100 h-100"
-      style="object-fit: cover; transition: transform 0.5s ease"
-      alt="Varanasi Tours"
-    />
-    <div
-      class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center package-overlay"
-      style="
-        background: rgba(0, 0, 0, 0.3);
-        transition: 0.3s;
-        --darkreader-inline-bgimage: initial;
-        --darkreader-inline-bgcolor: var(
-          --darkreader-background-0000004d,
-          rgba(0, 0, 0, 0.3)
-        );
-      "
-      data-darkreader-inline-bgimage=""
-      data-darkreader-inline-bgcolor=""
-    >
-      <h3 class="mb-3 text-white fw-bold">Varanasi</h3>
-      <span
-        class="bg-warning text-dark fw-bold px-3 py-2 mb-3"
-        style="border-radius: 3px"
-        >17 TOURS</span
-      >
-      <a
-        href="upcomingtrips.html?destination=varanasi"
-        class="btn btn-primary px-4 py-2 mt-2"
-        style="
-          transform: translateY(20px);
-          opacity: 0;
-          transition: all 0.3s ease;
-        "
-        >Explore Tours</a
-      >
-    </div>
-  </div> -->
-<div class="row g-4">
-  <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let city of cities">
-    <div class="city-card-wrapper">
-      <img
-        [@fadeAnimation]
-        [@zoomAnimation]
-        [@slideInAnimation]
-        [src]="getImageUrl(city.cityName)"
-        [alt]="city.cityName + ' Tours'"
-        class="city-image"
-      />
+  <div class="row g-4">
+    @for(city of cities; track city._cityId ; let idx = $index){ @if(
+    city.tourCount ){
 
-      <div class="city-overlay">
-        <h3 class="city-title">{{ city.cityName }}</h3>
-        <span class="city-tours">Explore Tours</span>
-        <a [href]="getLink(city.cityName)" class="btn btn-primary explore-btn">
-          Explore
-        </a>
+    <div
+      [class.col-12]="idx == 0"
+      class="col-sm-12 {{ idx != 0 ? 'col-md' : '' }}"
+    >
+      <div class="city-card-wrapper">
+        <img
+          [@fadeAnimation]
+          [@zoomAnimation]
+          [@slideInAnimation]
+          [src]="getImageUrl(city.cityName)"
+          [alt]="city.cityName + ' Tours'"
+          class="city-image"
+        />
+
+        <div class="city-overlay">
+          <h3 class="city-title">{{ city.cityName }}</h3>
+          <span class="bg-warning text-dark fw-bold px-3 py-2 city-tours"
+            >{{ city.tourCount }} Tours</span
+          >
+          <button class="btn btn-primary mt-5" (click)="getLink(city.cityName)">
+            Explore Now
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-  <mat-tab-group>
-    <mat-tab label=" Varanasi"> Varanasi </mat-tab>
-    <mat-tab label="Ayodhya"> Ayodhya </mat-tab>
-    <mat-tab label="Prayagraj"> </mat-tab>
-  </mat-tab-group>
+    } } @empty {
+    <li>There are no items.</li>
+    }
+  </div>
 </div>

@@ -23,13 +23,10 @@
 }
 .package-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2)
-   img {
-  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) img {
+    transform: scale(1.05);
+  }
 }
-}
-
-
 
 .fade-in {
   opacity: 1;
@@ -90,7 +87,6 @@ input:focus {
   .city-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.3);
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -98,8 +94,35 @@ input:focus {
     align-items: center;
     text-align: center;
     padding: 1rem;
-    transition: background 0.3s ease;
+    transition: background 1s ease;
+    gap: 1rem;
+    &:hover {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+      .city-image {
+        transform: scale(1.05);
+      }
 
+      .btn {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        border: 0px;
+      }
+
+      .city-overlay {
+        background: rgba(0, 0, 0, 0.5);
+      }
+    }
+    .btn {
+      position: absolute; // ensures no space taken when hidden
+      bottom: 3rem;
+
+      transform: translate(-50%, -50%); // slide down by default
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.3s ease;
+      pointer-events: none; // optional: disable interaction when hidden
+    }
     .city-title {
       font-weight: 700;
       font-size: 1.5rem;
@@ -114,27 +137,6 @@ input:focus {
       border-radius: 3px;
       margin-bottom: 1rem;
       display: inline-block;
-    }
-
-    .explore-btn {
-      transform: translateY(20px);
-      opacity: 0;
-      transition: all 0.3s ease;
-    }
-  }
-
-  &:hover {
-    .city-image {
-      transform: scale(1.05);
-    }
-
-    .explore-btn {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .city-overlay {
-      background: rgba(0, 0, 0, 0.5);
     }
   }
 }

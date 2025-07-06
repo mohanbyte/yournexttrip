@@ -4,6 +4,7 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { fadeAnimation, slideInAnimation, zoomAnimation } from '../animations';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'landing',
@@ -32,15 +33,21 @@ export class LandingComponent implements OnInit {
     'Plan your next trip without worry with our easy EMI payment options.',
     "EASY EMI OTIONS  II  Women's Safe Travel Platform  II  End to end and Customizable Packages",
   ];
-  cities : any[] = [];
-  constructor( private httpClient : HttpClient) {}
+  cities: any[] = [];
+  constructor(
+    private httpClient: HttpClient,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
     // Initialize any necessary data or state here
     this.startImageRotation();
-    this.httpClient.get('https://yournexttrip-be.onrender.com/api/v1/city').subscribe(res=>{
-      console.log(res);
-    })
+    this.httpClient
+      .get('https://yournexttrip-be.onrender.com/api/v1/city/summary')
+      .subscribe((res: any) => {
+        console.log(res);
+        this.cities = res.cities;
+      });
   }
   startImageRotation() {
     setInterval(() => {
@@ -72,8 +79,12 @@ export class LandingComponent implements OnInit {
       }
     }, 80); // Adjust typing speed here
   }
-   getImageUrl(cityName: string): string {
-    return `https://www.yournexttrip.in/img/${cityName}.png`;
+  getImageUrl(cityName: string): string {
+    const url = `https://landing-images-server.harshsriv99.workers.dev/tourcount/${cityName.toLowerCase()}-tourcount.jpg`;
+    console.log(url);
+    return url;
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url).toString();
   }
 
   getLink(cityName: string): string {
