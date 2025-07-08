@@ -83,8 +83,6 @@ export class LandingComponent implements OnInit {
     const url = `https://landing-images-server.harshsriv99.workers.dev/tourcount/${cityName.toLowerCase()}-tourcount.jpg`;
     console.log(url);
     return url;
-
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url).toString();
   }
 
   getLink(cityName: string): string {

@@ -31,7 +31,84 @@
     <!-- Search results will be displayed here -->
   </div>
 </div>
-<div class="container">
+<div class="container-fluid py-5" style="background-color: #f4f8f2">
+  <div class="container">
+    <div class="row g-4 text-center justify-content-center">
+      <!-- Instagram -->
+      <div
+        class="col-6 col-md-3 wow fadeInUp"
+        data-wow-delay="0.1s"
+        style="
+          visibility: visible;
+          animation-delay: 0.1s;
+          animation-name: fadeInUp;
+        "
+      >
+        <div class="p-3 rounded-4 bg-white shadow-sm h-100">
+          <i class="fab fa-instagram fa-2x mb-2" style="color: #e1306c"></i>
+          <p class="mb-1 fw-semibold text-dark">Instagram</p>
+          <h6 class="fw-bold text-success">Join Our Community</h6>
+        </div>
+      </div>
+
+      <!-- Google Reviews -->
+      <div
+        class="col-6 col-md-3 wow fadeInUp"
+        data-wow-delay="0.2s"
+        style="
+          visibility: visible;
+          animation-delay: 0.2s;
+          animation-name: fadeInUp;
+        "
+      >
+        <div class="p-3 rounded-4 bg-white shadow-sm h-100">
+          <i class="fab fa-google fa-2x mb-2" style="color: #4285f4"></i>
+          <p class="mb-1 fw-semibold text-dark">4.9</p>
+          <h6 class="fw-bold text-success">Google Rated</h6>
+        </div>
+      </div>
+
+      <!-- Itineraries -->
+      <div
+        class="col-6 col-md-3 wow fadeInUp"
+        data-wow-delay="0.3s"
+        style="
+          visibility: visible;
+          animation-delay: 0.3s;
+          animation-name: fadeInUp;
+        "
+      >
+        <div class="p-3 rounded-4 bg-white shadow-sm h-100">
+          <i
+            class="fas fa-map-marked-alt fa-2x mb-2"
+            style="color: #ff7043"
+          ></i>
+          <p class="mb-1 fw-semibold text-dark">150+</p>
+          <h6 class="fw-bold text-success">Itineraries</h6>
+        </div>
+      </div>
+
+      <!-- Book Now & Pay Later -->
+      <div
+        class="col-6 col-md-3 wow fadeInUp"
+        data-wow-delay="0.4s"
+        style="
+          visibility: visible;
+          animation-delay: 0.4s;
+          animation-name: fadeInUp;
+        "
+      >
+        <div class="p-3 rounded-4 bg-white shadow-sm h-100">
+          <i class="fas fa-wallet fa-2x mb-2" style="color: #6d4c41"></i>
+          <p class="mb-1 fw-semibold text-dark">Book Now &amp;</p>
+          <h6 class="fw-bold text-success">Pay Later</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- TOur Packages-->
+<div class="container mb-5">
   <div class="text-center mt-5 pb-3">
     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px">
       Package
@@ -71,5 +148,80 @@
     } } @empty {
     <li>There are no items.</li>
     }
+  </div>
+</div>
+
+<!-- Top Activities in Varanasi -->
+<div class="container-fluid py-5" style="background-color: #f9f9f9">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 800px">
+      <h1 class="display-5 text-primary mb-4">Top Activities in Varanasi</h1>
+      <p class="mb-4 fs-5">
+        Discover the ancient city of Varanasi, where spirituality, history, and
+        culture come alive.
+      </p>
+    </div>
+    <div class="row g-4">
+      <!-- Package 1 - Varanasi Full Day City Tour – 1N 2D -->
+      <div class="col-lg-4 col-md-6">
+        <div class="package-item bg-white rounded shadow overflow-hidden">
+          <div class="package-img position-relative">
+            <img
+              class="img-fluid w-100"
+              [src]="getImageUrl('varanasi')"
+              alt="Varanasi Full Day City Tour"
+            />
+            <div
+              class="price-start position-absolute top-0 end-0 bg-primary px-3 py-2 rounded-bottom-start"
+            >
+              <small class="text-white">From</small>
+              <h5 class="text-white mb-0">₹3,680</h5>
+            </div>
+          </div>
+          <div class="p-4">
+            <div class="d-flex justify-content-between mb-3">
+              <small
+                ><i class="fa fa-map-marker-alt text-primary me-2"></i
+                >Varanasi</small
+              >
+              <small><i class="fa fa-clock text-primary me-2"></i>1N 2D</small>
+              <small
+                ><i class="fa fa-user text-primary me-2"></i>Skip the
+                line</small
+              >
+            </div>
+            <h4 class="mb-3">
+              Explore the Spiritual Heart of India - Varanasi
+            </h4>
+            <p class="text-success fw-semibold mb-2">
+              The sacred ghats, mesmerizing Ganga Aarti, and centuries-old
+              temples.
+            </p>
+            <div class="d-flex justify-content-between">
+              <a
+                class="btn btn-sm btn-primary rounded-pill px-4"
+                href="Varanasi-Full-Day-City-Tour-1N-2D.html"
+                >Book Now</a
+              >
+              <a
+                href="https://wa.me/918188007557?text=I'm%20interested%20in%20the%20Varanasi%201N%202D%20Tour%20for%20₹1,800"
+                target="_blank"
+                class="btn btn-sm btn-success rounded-pill px-4"
+              >
+                <i class="fab fa-whatsapp me-1"></i>WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a
+          href="upcomingtrips.html"
+          class="btn btn-primary btn-lg rounded-pill px-5 py-3"
+          >View All Packages</a
+        >
+      </div>
+    </div>
   </div>
 </div>
