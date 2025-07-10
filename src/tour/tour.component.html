@@ -6,7 +6,6 @@
     ')'
   "
 >
-  >
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-lg-8 text-center">
@@ -14,7 +13,7 @@
           Upcoming Trips to {{ city.toUpperCase() }}
         </h1>
         <p class="fs-5 text-white mb-5">
-          Explore our curated spiritual journeys to India's most sacred cities
+          {{ citySubText }}
         </p>
       </div>
     </div>
@@ -28,8 +27,7 @@
         Top Activities in {{ city | titlecase }}
       </h1>
       <p class="mb-4 fs-5">
-        Discover the ancient city of {{ city | titlecase }}, where spirituality,
-        history, and culture come alive.
+        {{ cityDescription }}
       </p>
 
       <!-- Filter Buttons -->
@@ -70,7 +68,7 @@
       @for (tour of tours; track $index; let index =$index) {
 
       <!-- Package 1 - Varanasi Full Day City Tour – 1N 2D -->
-      <div class="col-sm-12 col-md" data-category="multi-day">
+      <div class="col-sm-12 col-md" (click)="navigateTourDetails(index)">
         <div class="package-item bg-white rounded shadow overflow-hidden h-100">
           <div class="package-img position-relative">
             <img
@@ -114,7 +112,13 @@
                     >{{ tour.rating }}</span
                   >
                   <span class="badge bg-light text-dark"
-                    ><i class="fa fa-users me-1"></i>Group Tour</span
+                    ><i
+                      [class]="`fa fa-${ tour.maxGroupSize > 3 ? 'users': 'user'} me-1`"
+                    ></i
+                    >{{
+                      tour.maxGroupSize > 3 ? "Group" : "Private"
+                    }}
+                    Tour</span
                   >
                 </div>
               </div>

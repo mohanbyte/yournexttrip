@@ -919,8 +919,8 @@
 
 /*** Tours CSS ***/
 .package-header {
-  background-size: cover;
-  background-position: center;
+  background-size: cover !important;
+  background-position: center !important;
 }
 .package-img {
   transition: transform 0.5s ease;

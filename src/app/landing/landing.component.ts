@@ -40,7 +40,7 @@ export class LandingComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private router: Router
   ) {}
-  tours = '';
+  tours = [];
   ngOnInit() {
     // Initialize any necessary data or state here
     this.startImageRotation();
@@ -55,7 +55,7 @@ export class LandingComponent implements OnInit {
       .get('https://yournexttrip-be.onrender.com/api/v1/tour?cityName=varanasi')
       .subscribe((res: any) => {
         console.log(res);
-        this.tours = res;
+        this.tours = res.tours;
       });
   }
   startImageRotation() {
@@ -93,8 +93,10 @@ export class LandingComponent implements OnInit {
     console.log(url);
     return url;
   }
-  getTourImageUrl(city) {
-    const url = `https://broken-bird-97d8.harshsriv99.workers.dev/${city}/${1}.jpg`;
+  getTourImageUrl(city, index = 0) {
+    const url = `https://broken-bird-97d8.harshsriv99.workers.dev/${city}/${
+      index + 1
+    }.jpg`;
     return url;
   }
 

@@ -1,0 +1,216 @@
+// Package Header Styles
+.package-header {
+  min-height: 400px;
+  background-attachment: fixed;
+}
+
+.price-highlight {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fe512e;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+// Card Styles
+.card {
+  transition: transform 0.3s ease-in-out;
+  border-radius: 12px;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.card-header {
+  border-radius: 12px 12px 0 0 !important;
+  font-weight: 600;
+}
+
+// Highlight Items
+.highlight-item {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Table Styles
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+.table-bordered {
+  border: 2px solid #dee2e6;
+  th {
+    background-color: var(--bs-secondary) !important;
+  }
+  th,
+  td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    text-align: center;
+  }
+}
+
+.table-dark {
+  background-color: var(--bs-secondary) !important;
+  color: white;
+}
+
+.highlight-row {
+  background-color: rgba(254, 81, 46, 0.1) !important;
+  border-left: 4px solid #fe512e;
+  font-weight: 600;
+}
+
+// Itinerary Styles
+.itinerary-day {
+  transition: all 0.3s ease;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+
+  .faq-question {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-answer {
+    background-color: rgba(248, 249, 250, 0.8);
+    border-left: 3px solid #007bff;
+    padding: 1rem;
+    border-radius: 6px;
+
+    p {
+      margin-bottom: 0.5rem;
+      color: #6c757d;
+    }
+  }
+}
+
+// Badge Styles
+.badge {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+}
+
+// Inclusion/Exclusion Lists
+.inclusion-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+    padding-left: 1.5rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #28a745;
+      font-weight: bold;
+    }
+  }
+}
+
+.exclusion-list {
+  li::before {
+    content: "✗";
+    color: #dc3545;
+  }
+}
+
+// Booking Card Styles
+.booking-card {
+  position: sticky;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+}
+
+.package-price {
+  font-size: 1.5rem;
+}
+
+// Accordion Styles
+.accordion-button {
+  font-weight: 600;
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  }
+}
+
+// Modal Styles
+.modal-header {
+  border-bottom: 2px solid #dee2e6;
+}
+
+.modal-footer {
+  border-top: 2px solid #dee2e6;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .package-header {
+    min-height: 300px;
+    background-attachment: scroll;
+  }
+
+  .price-highlight {
+    font-size: 2rem;
+  }
+
+  .booking-card {
+    position: static;
+    max-height: none;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+
+// Animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+// Button Styles
+.btn {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Image Styles
+.img-fluid {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

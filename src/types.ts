@@ -1,3 +1,11 @@
+export interface PricingDetail {
+  groupSize: number;
+  basePackageTotal: number;
+  pricePerPerson: number;
+  vipAddon?: number;
+  finalPerPersonWithVIP?: number;
+}
+
 export interface Tour {
   _id: string;
   tour_id: string;
@@ -15,7 +23,7 @@ export interface Tour {
   package_exclusions: string[];
   add_ons: string[];
   information: string[];
-  pricingDetails: { [key: string]: number }[];
+  pricingDetails: PricingDetail[];
   rating: number;
   maxGroupSize: number;
 }
