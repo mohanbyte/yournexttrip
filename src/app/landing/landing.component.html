@@ -231,7 +231,11 @@
         @for (tour of tours; track $index; let index =$index) {
 
         <!-- Package 1 - Varanasi Full Day City Tour – 1N 2D -->
-        <div class="col-sm-12 col-md" data-category="multi-day">
+        <div
+          class="col-sm-12 col-md"
+          data-category="multi-day"
+          (click)="navigateTourDetails(index)"
+        >
           <div
             class="package-item bg-white rounded shadow overflow-hidden h-100"
           >

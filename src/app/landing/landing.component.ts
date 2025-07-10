@@ -64,6 +64,14 @@ export class LandingComponent implements OnInit {
       this.startTypingEffect();
     }, 6000); // Change image every 5 seconds
   }
+  navigateTourDetails(index) {
+    this.router.navigate(['tourDetails'], {
+      queryParams: {
+        tour_id: this.tours[index].tour_id,
+        city: 'varanasi',
+      },
+    });
+  }
   typedText = '';
   typingInterval: any;
 

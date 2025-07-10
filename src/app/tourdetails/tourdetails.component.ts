@@ -74,7 +74,12 @@ export class TourdetailsComponent {
 
     console.log(this.tourDetails);
   }
-
+  getTourImageUrl(index) {
+    const url = `https://broken-bird-97d8.harshsriv99.workers.dev/${
+      this.city
+    }/${index + 1}.jpg`;
+    return url;
+  }
   // Method to update pricing based on selected travelers
   onTravelersChange(event: any) {
     const selectedGroupSize = parseInt(event.target.value);

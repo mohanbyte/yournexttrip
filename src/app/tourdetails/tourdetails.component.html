@@ -33,9 +33,7 @@
         </div>
         <div class="mt-4">
           <span class="price-highlight"
-            >Starting from ₹{{
-              selectedPricing.pricePerPerson | number : "1.0-0"
-            }}*</span
+            >Starting from ₹{{ tourDetails.price | number : "1.0-0" }}*</span
           >
           <p class="small text-white mt-1">
             *Price per person for group of {{ selectedTravelers }} | T&C apply
@@ -137,49 +135,17 @@
               <h2 class="mb-0 h4">Photo Gallery</h2>
             </div>
             <div class="card-body p-0">
-              <div class="row g-3">
+              <div class="row p-2 g-3">
+                @for(imageIndex of [1, 2, 3, 4, 5, 6]; track $index; let index =
+                $index) {
                 <div class="col-md-4">
                   <img
-                    src="img/Evening-Aarti.png"
+                    [src]="getTourImageUrl(index)"
                     class="img-fluid rounded shadow-sm"
                     alt="Ganga Aarti at Varanasi"
                   />
                 </div>
-                <div class="col-md-4">
-                  <img
-                    src="img/Sunrise-Boat-Tour.png"
-                    class="img-fluid rounded shadow-sm"
-                    alt="Boat ride on Ganges"
-                  />
-                </div>
-                <div class="col-md-4">
-                  <img
-                    src="img/IMG_7813.PNG"
-                    class="img-fluid rounded shadow-sm"
-                    alt="Kashi Vishwanath Temple"
-                  />
-                </div>
-                <div class="col-md-4">
-                  <img
-                    src="img/Varanasi-Street-Food.png"
-                    class="img-fluid rounded shadow-sm"
-                    alt="Varanasi ghats"
-                  />
-                </div>
-                <div class="col-md-4">
-                  <img
-                    src="img/Hidden-Secrets.png"
-                    class="img-fluid rounded shadow-sm"
-                    alt="Varanasi streets"
-                  />
-                </div>
-                <div class="col-md-4">
-                  <img
-                    src="img/IMG_7815.PNG"
-                    class="img-fluid rounded shadow-sm"
-                    alt="Sarnath Buddhist site"
-                  />
-                </div>
+                }
               </div>
             </div>
           </div>
