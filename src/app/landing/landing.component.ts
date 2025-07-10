@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { fadeAnimation, slideInAnimation, zoomAnimation } from '../animations';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'landing',
@@ -36,9 +37,10 @@ export class LandingComponent implements OnInit {
   cities: any[] = [];
   constructor(
     private httpClient: HttpClient,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router
   ) {}
-
+  tours = '';
   ngOnInit() {
     // Initialize any necessary data or state here
     this.startImageRotation();
@@ -47,6 +49,13 @@ export class LandingComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(res);
         this.cities = res.cities;
+      });
+
+    this.httpClient
+      .get('https://yournexttrip-be.onrender.com/api/v1/tour?cityName=varanasi')
+      .subscribe((res: any) => {
+        console.log(res);
+        this.tours = res;
       });
   }
   startImageRotation() {
@@ -84,8 +93,16 @@ export class LandingComponent implements OnInit {
     console.log(url);
     return url;
   }
+  getTourImageUrl(city) {
+    const url = `https://broken-bird-97d8.harshsriv99.workers.dev/${city}/${1}.jpg`;
+    return url;
+  }
 
-  getLink(cityName: string): string {
-    return `upcomingtrips.html?destination=${cityName.toLowerCase()}`;
+  navigateToCity(cityName: string) {
+    this.router.navigate(['tour'], {
+      queryParams: {
+        city: cityName.toLowerCase(),
+      },
+    });
   }
 }

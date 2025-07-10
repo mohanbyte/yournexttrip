@@ -1,0 +1,150 @@
+<div
+  class="container-fluid package-header d-flex align-items-center justify-content-center text-center text-white py-5"
+  [style.background]="
+    'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(' +
+    getImageUrl(city) +
+    ')'
+  "
+>
+  >
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h1 class="display-4 fw-bold text-white mb-4">
+          Upcoming Trips to {{ city.toUpperCase() }}
+        </h1>
+        <p class="fs-5 text-white mb-5">
+          Explore our curated spiritual journeys to India's most sacred cities
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid py-5" style="background-color: #f9f9f9">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 800px">
+      <h1 class="display-5 text-primary mb-4">
+        Top Activities in {{ city | titlecase }}
+      </h1>
+      <p class="mb-4 fs-5">
+        Discover the ancient city of {{ city | titlecase }}, where spirituality,
+        history, and culture come alive.
+      </p>
+
+      <!-- Filter Buttons -->
+      <!-- <div class="filter-buttons mb-4">
+            <button
+            class="btn btn-sm btn-outline-primary rounded-pill mx-1 filter-btn active"
+            data-filter="all"
+            >
+            All
+            </button>
+            <button
+            class="btn btn-sm btn-outline-primary rounded-pill mx-1 filter-btn"
+            data-filter="day-tour"
+            >
+            Day Tours
+            </button>
+            <button
+            class="btn btn-sm btn-outline-primary rounded-pill mx-1 filter-btn"
+            data-filter="multi-day"
+            >
+            Multi-Day
+            </button>
+            <button
+            class="btn btn-sm btn-outline-primary rounded-pill mx-1 filter-btn"
+            data-filter="vip"
+            >
+            VIP Darshan
+            </button>
+            <button
+            class="btn btn-sm btn-outline-primary rounded-pill mx-1 filter-btn"
+            data-filter="combo"
+            >
+            Combo Tours
+            </button>
+      </div> -->
+    </div>
+    <div class="row g-4">
+      @for (tour of tours; track $index; let index =$index) {
+
+      <!-- Package 1 - Varanasi Full Day City Tour – 1N 2D -->
+      <div class="col-sm-12 col-md" data-category="multi-day">
+        <div class="package-item bg-white rounded shadow overflow-hidden h-100">
+          <div class="package-img position-relative">
+            <img
+              class="img-fluid w-100"
+              [src]="getTourImageUrl(index)"
+              alt="Full Day City Tour"
+            />
+            <div
+              class="price-start position-absolute top-0 end-0 bg-primary px-3 py-2 rounded-bottom-start"
+            >
+              <small class="text-white">From</small>
+              <h5 class="text-white price mb-0">₹{{ tour.price }}</h5>
+            </div>
+            <div
+              class="position-absolute bottom-0 start-0 bg-primary text-white px-3 py-1 rounded-top-end"
+            >
+              <small>Bestseller</small>
+            </div>
+          </div>
+          <div class="p-4 d-flex flex-column h-100">
+            <div class="d-flex justify-content-between mb-3">
+              @for (tag of tour.tags; track $index; let idx = $index) { @if
+              (idx<3) {
+              <small
+                ><i class="fa fa-map-marker-alt text-primary me-2"></i
+                >{{ tag | titlecase }}</small
+              >
+              } }
+            </div>
+            <h4 class="mb-3">{{ tour.title }}</h4>
+            <p class="text-success fw-semibold mb-2">
+              {{ tour.description }}
+            </p>
+            <div class="mt-auto">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <div>
+                  <span class="badge bg-light text-dark me-1"
+                    ><i class="fa fa-star text-warning me-1"></i
+                    >{{ tour.rating }}</span
+                  >
+                  <span class="badge bg-light text-dark"
+                    ><i class="fa fa-users me-1"></i>Group Tour</span
+                  >
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <a
+                  class="btn btn-sm btn-primary rounded-pill px-4"
+                  href="Varanasi-Full-Day-City-Tour-1N-2D.html"
+                  >Book Now</a
+                >
+                <a
+                  href="https://wa.me/918188007557?text=I'm%20interested%20in%20the%20Varanasi%201N%202D%20Tour%20for%20₹3,680"
+                  target="_blank"
+                  class="btn btn-sm btn-success rounded-pill px-4"
+                >
+                  <i class="fab fa-whatsapp me-1"></i>WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      }
+    </div>
+    <div class="text-center mt-5">
+      <a
+        href="upcomingtrips.html"
+        class="btn btn-primary btn-lg rounded-pill px-5 py-3"
+        >View All Packages</a
+      >
+    </div>
+  </div>
+</div>

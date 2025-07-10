@@ -138,7 +138,10 @@
           <span class="bg-warning text-dark fw-bold px-3 py-2 city-tours"
             >{{ city.tourCount }} Tours</span
           >
-          <button class="btn btn-primary mt-5" (click)="getLink(city.cityName)">
+          <button
+            class="btn btn-primary mt-5"
+            (click)="navigateToCity(city.cityName)"
+          >
             Explore Now
           </button>
         </div>

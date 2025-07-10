@@ -124,7 +124,6 @@ input:focus {
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.3s ease;
-      pointer-events: none; // optional: disable interaction when hidden
       z-index: 50;
     }
     .city-title {
